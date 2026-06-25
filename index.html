@@ -215,7 +215,7 @@ footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
     <input type="text" placeholder="שם מלא" />
     <input type="tel" placeholder="טלפון / ווצאפ" />
     <input type="email" placeholder="אימייל" />
-    <button class="btn-primary" style="width:100%;border:none">הצטרף לתנועה ←</button>
+    <button class="btn-primary" style="width:100%;border:none" onclick="submitForm()">הצטרף לתנועה ←</button>
   </div>
   <div class="social-row">
    <a class="social-pill" href="https://www.facebook.com/profile.php?id=61591246927272" target="_blank">📘 פייסבוק</a>
@@ -225,7 +225,15 @@ footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
 <a class="social-pill" href="https://x.com/tnuathaohr" target="_blank">🐦 X</a>
   </div>
 </section>
-
+<script>
+function submitForm(){
+  const name = document.querySelector('input[placeholder="שם מלא"]').value;
+  const phone = document.querySelector('input[placeholder="טלפון / ווצאפ"]').value;
+  const email = document.querySelector('input[placeholder="אימייל"]').value;
+  if(!name || !email){alert('נא למלא שם ואימייל');return;}
+  window.location.href = 'mailto:tnuathaohr@gmail.com?subject=הצטרפות לתנועת האור&body=שם: '+name+'%0Aטלפון: '+phone+'%0Aאימייל: '+email;
+}
+</script>
 <footer>
   <a class="logo" href="index.html" style="color:var(--white)">תנועת <span style="color:var(--gold)">האור</span></a>
   <p>© 2026 תנועת האור · כל הזכויות שמורות</p>
