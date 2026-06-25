@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>תודה שהצטרפת | תנועת האור</title>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700;900&family=Heebo:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0D1B2A;
+  --gold:#B8912A;
+  --gold-light:#D4A843;
+  --cream:#F9F6F0;
+  --warm-gray:#6B6560;
+  --border:#E2DDD6;
+  --white:#FFFFFF;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Heebo',sans-serif;
+  background:var(--navy);
+  color:var(--white);
+  direction:rtl;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+}
+
+/* NAV */
+nav{
+  padding:0 5%;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.logo{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:1.2rem;color:var(--white);text-decoration:none}
+.logo span{color:var(--gold)}
+.nav-back{font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;display:flex;align-items:center;gap:0.4rem;transition:color .2s}
+.nav-back:hover{color:var(--white)}
+
+/* MAIN */
+main{
+  flex:1;display:flex;align-items:center;justify-content:center;
+  padding:40px 5%;
+  position:relative;overflow:hidden;
+}
+main::before{
+  content:'';position:absolute;
+  top:-20%;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;
+  background:radial-gradient(ellipse at center,rgba(184,145,42,0.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+.card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(184,145,42,0.25);
+  border-radius:16px;
+  padding:3.5rem 3rem;
+  max-width:560px;width:100%;
+  text-align:center;
+  position:relative;z-index:1;
+  backdrop-filter:blur(8px);
+}
+
+/* CHECKMARK */
+.check-wrap{
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(184,145,42,0.15);
+  border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 2rem;
+  animation:popIn .5s cubic-bezier(0.175,0.885,0.32,1.275) both;
+}
+@keyframes popIn{
+  0%{transform:scale(0);opacity:0}
+  100%{transform:scale(1);opacity:1}
+}
+.check-wrap svg{width:34px;height:34px}
+
+/* TEXT */
+.eyebrow{
+  font-size:0.7rem;font-weight:500;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:1rem;display:block;
+}
+.card h1{
+  font-family:'Frank Ruhl Libre',serif;
+  font-size:clamp(1.9rem,5vw,2.6rem);
+  font-weight:700;color:var(--white);
+  line-height:1.2;margin-bottom:1rem;
+}
+.card h1 em{font-style:normal;color:var(--gold-light)}
+.card p{
+  font-size:1rem;color:rgba(255,255,255,0.65);
+  line-height:1.8;margin-bottom:2rem;
+}
+
+/* DIVIDER */
+.divider{
+  height:1px;background:rgba(255,255,255,0.08);
+  margin:2rem 0;
+}
+
+/* NEXT STEPS */
+.steps{text-align:right;margin-bottom:2rem}
+.steps h3{
+  font-family:'Frank Ruhl Libre',serif;
+  font-size:1rem;font-weight:700;
+  color:var(--gold);margin-bottom:1rem;
+}
+.step{
+  display:flex;align-items:flex-start;gap:0.85rem;
+  margin-bottom:0.85rem;
+}
+.step-num{
+  min-width:26px;height:26px;border-radius:50%;
+  background:rgba(184,145,42,0.2);border:1px solid var(--gold);
+  font-size:0.75rem;font-weight:700;color:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  margin-top:2px;flex-shrink:0;
+}
+.step p{font-size:0.88rem;color:rgba(255,255,255,0.65);margin-bottom:0;line-height:1.6}
+
+/* SOCIAL */
+.social-row{
+  display:flex;justify-content:center;gap:0.6rem;
+  flex-wrap:wrap;margin-bottom:2rem;
+}
+.social-pill{
+  display:flex;align-items:center;gap:0.4rem;
+  font-size:0.78rem;color:rgba(255,255,255,0.6);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:100px;padding:0.35rem 0.85rem;
+  text-decoration:none;transition:all .2s;
+}
+.social-pill:hover{border-color:var(--gold);color:var(--gold)}
+
+/* CTA */
+.btn-primary{
+  background:var(--gold);color:var(--white);
+  font-family:'Heebo',sans-serif;font-size:0.95rem;font-weight:500;
+  padding:0.85rem 2.5rem;border-radius:4px;
+  border:none;cursor:pointer;text-decoration:none;
+  display:inline-block;transition:background .2s,transform .15s;
+  width:100%;
+}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
+
+/* FOOTER */
+footer{
+  padding:1.5rem 5%;
+  border-top:1px solid rgba(255,255,255,0.06);
+  text-align:center;
+}
+footer p{font-size:0.75rem;color:rgba(255,255,255,0.25)}
+
+/* MOBILE */
+@media(max-width:600px){
+  .card{padding:2.5rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">תנועת <span>האור</span></a>
+  <a class="nav-back" href="index.html">→ חזרה לאתר</a>
+</nav>
+
+<main>
+  <div class="card">
+
+    <div class="check-wrap">
+      <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 17L13.5 24.5L28 10" stroke="#B8912A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <span class="eyebrow">ברוך הבא לתנועה</span>
+    <h1>תודה שהצטרפת<br>ל<em>תנועת האור</em></h1>
+    <p>
+      נרשמת בהצלחה! נשמח לעדכן אותך בכל ההתפתחויות, האירועים, והחדשות של התנועה ישירות למייל.
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="steps">
+      <h3>מה עכשיו?</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <p>בדוק את תיבת האימייל שלך — שלחנו לך מייל אישור עם פרטים נוספים</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <p>עקוב אחרינו ברשתות החברתיות לעדכונים שוטפים ותכנים בלעדיים</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <p>שתף את הדף עם חברים ומשפחה — יחד נעשה את ההבדל</p>
+      </div>
+    </div>
+
+    <div class="social-row">
+      <a class="social-pill" href="https://www.facebook.com/profile.php?id=61591246927272" target="_blank">📘 פייסבוק</a>
+      <a class="social-pill" href="https://www.instagram.com/tnuathaohr" target="_blank">📷 אינסטגרם</a>
+      <a class="social-pill" href="https://wa.me/" target="_blank">💬 ווצאפ</a>
+      <a class="social-pill" href="https://t.me/+kB3YsDpSEAwyODg0" target="_blank">✈️ טלגרם</a>
+      <a class="social-pill" href="https://x.com/tnuathaohr" target="_blank">🐦 X</a>
+    </div>
+
+    <a href="index.html" class="btn-primary">חזרה לאתר התנועה</a>
+
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 תנועת האור · כי מגיע לנו יותר</p>
+</footer>
+
+</body>
+</html>
