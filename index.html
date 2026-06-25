@@ -21,7 +21,33 @@
   --white:#FFFFFF;
 }
 html{scroll-behavior:smooth}
-body{
+<script>
+function toggleMenu(){
+  const ul = document.querySelector('nav ul');
+  const h1 = document.getElementById('h1');
+  const h2 = document.getElementById('h2');
+  const h3 = document.getElementById('h3');
+  ul.classList.toggle('open');
+  if(ul.classList.contains('open')){
+    h1.style.transform='translateY(7px) rotate(45deg)';
+    h2.style.opacity='0';
+    h3.style.transform='translateY(-7px) rotate(-45deg)';
+  } else {
+    h1.style.transform='none';
+    h2.style.opacity='1';
+    h3.style.transform='none';
+  }
+}
+document.querySelectorAll('nav ul a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    document.querySelector('nav ul').classList.remove('open');
+    document.getElementById('h1').style.transform='none';
+    document.getElementById('h2').style.opacity='1';
+    document.getElementById('h3').style.transform='none';
+  });
+});
+</script>
+  body{
   font-family:'Heebo',sans-serif;
   background:var(--cream);
   color:var(--navy);
