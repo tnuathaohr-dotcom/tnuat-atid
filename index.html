@@ -21,48 +21,12 @@
   --white:#FFFFFF;
 }
 html{scroll-behavior:smooth}
-<script>
-function toggleMenu(){
-  const ul = document.querySelector('nav ul');
-  const h1 = document.getElementById('h1');
-  const h2 = document.getElementById('h2');
-  const h3 = document.getElementById('h3');
-  ul.classList.toggle('open');
-  if(ul.classList.contains('open')){
-    h1.style.transform='translateY(7px) rotate(45deg)';
-    h2.style.opacity='0';
-    h3.style.transform='translateY(-7px) rotate(-45deg)';
-  } else {
-    h1.style.transform='none';
-    h2.style.opacity='1';
-    h3.style.transform='none';
-  }
-}
-document.querySelectorAll('nav ul a').forEach(a=>{
-  a.addEventListener('click',()=>{
-    document.querySelector('nav ul').classList.remove('open');
-    document.getElementById('h1').style.transform='none';
-    document.getElementById('h2').style.opacity='1';
-    document.getElementById('h3').style.transform='none';
-  });
-});
-</script>
-  body{
-  font-family:'Heebo',sans-serif;
-  background:var(--cream);
-  color:var(--navy);
-  direction:rtl;
-  font-size:16px;
-  line-height:1.7;
-}
+body{font-family:'Heebo',sans-serif;background:var(--cream);color:var(--navy);direction:rtl;font-size:16px;line-height:1.7}
 nav{
   position:fixed;top:0;right:0;left:0;z-index:100;
-  background:rgba(249,246,240,0.95);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--border);
-  padding:0 5%;
-  display:flex;align-items:center;justify-content:space-between;
-  height:64px;
+  background:rgba(249,246,240,0.97);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;height:64px;
 }
 .logo{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:1.25rem;color:var(--navy);text-decoration:none}
 .logo span{color:var(--gold)}
@@ -71,41 +35,19 @@ nav ul a{font-size:0.875rem;font-weight:400;color:var(--warm-gray);text-decorati
 nav ul a:hover{color:var(--navy)}
 .nav-cta{background:var(--navy);color:var(--white)!important;padding:0.45rem 1.1rem;border-radius:4px;font-weight:500!important}
 .nav-cta:hover{background:var(--gold)!important}
-.hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding:100px 5% 60px;background:var(--navy);position:relative;overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;top:-10%;left:-5%;
-  width:55%;height:120%;
-  background:radial-gradient(ellipse at center,rgba(184,145,42,0.12) 0%,transparent 70%);
-  pointer-events:none;
-}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--navy);transition:all .3s;border-radius:2px}
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 5% 60px;background:var(--navy);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-10%;left:-5%;width:55%;height:120%;background:radial-gradient(ellipse at center,rgba(184,145,42,0.12) 0%,transparent 70%);pointer-events:none}
 .hero-inner{max-width:680px;position:relative;z-index:1}
-.eyebrow{
-  display:inline-block;font-size:0.75rem;font-weight:500;
-  letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);
-  border:1px solid rgba(184,145,42,0.4);padding:0.3rem 0.85rem;border-radius:2px;margin-bottom:1.6rem;
-}
-.hero h1{
-  font-family:'Frank Ruhl Libre',serif;
-  font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;
-  color:var(--white);line-height:1.15;margin-bottom:1.4rem;
-}
+.eyebrow{display:inline-block;font-size:0.75rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,145,42,0.4);padding:0.3rem 0.85rem;border-radius:2px;margin-bottom:1.6rem}
+.hero h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2.2rem,8vw,3.8rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:1.4rem}
 .hero h1 em{font-style:normal;color:var(--gold-light)}
 .hero p{font-size:1.05rem;font-weight:300;color:rgba(255,255,255,0.72);max-width:520px;margin-bottom:2.4rem;line-height:1.8}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
-.btn-primary{
-  background:var(--gold);color:var(--white);font-family:'Heebo',sans-serif;
-  font-size:0.95rem;font-weight:500;padding:0.85rem 2rem;border-radius:4px;
-  border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s,transform .15s;
-}
+.btn-primary{background:var(--gold);color:var(--white);font-family:'Heebo',sans-serif;font-size:0.95rem;font-weight:500;padding:0.85rem 2rem;border-radius:4px;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s,transform .15s}
 .btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
-.btn-ghost{
-  background:transparent;color:rgba(255,255,255,0.75);font-family:'Heebo',sans-serif;
-  font-size:0.95rem;font-weight:400;padding:0.85rem 1.6rem;border-radius:4px;
-  border:1px solid rgba(255,255,255,0.25);cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s;
-}
+.btn-ghost{background:transparent;color:rgba(255,255,255,0.75);font-family:'Heebo',sans-serif;font-size:0.95rem;font-weight:400;padding:0.85rem 1.6rem;border-radius:4px;border:1px solid rgba(255,255,255,0.25);cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s}
 .btn-ghost:hover{border-color:rgba(255,255,255,0.6);color:var(--white)}
 .divider{height:4px;background:var(--gold);width:48px;margin:0 0 1.2rem}
 .values{padding:90px 5%}
@@ -113,18 +55,12 @@ nav ul a:hover{color:var(--navy)}
 .section-title{font-family:'Frank Ruhl Libre',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:1rem}
 .section-sub{font-size:1rem;color:var(--warm-gray);max-width:540px;margin-bottom:3rem}
 .values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
-.value-card{
-  background:var(--white);border:1px solid var(--border);border-radius:6px;
-  padding:2rem 1.75rem;transition:box-shadow .2s,transform .2s;
-}
+.value-card{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:2rem 1.75rem;transition:box-shadow .2s,transform .2s}
 .value-card:hover{box-shadow:0 8px 32px rgba(13,27,42,0.09);transform:translateY(-2px)}
 .value-icon{font-size:1.6rem;margin-bottom:1rem;display:block}
 .value-card h3{font-family:'Frank Ruhl Libre',serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem}
 .value-card p{font-size:0.9rem;color:var(--warm-gray);line-height:1.7}
-.about{
-  background:var(--navy);padding:90px 5%;
-  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;
-}
+.about{background:var(--navy);padding:90px 5%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .about-text h2{font-family:'Frank Ruhl Libre',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:1.2rem}
 .about-text p{font-size:0.97rem;color:rgba(255,255,255,0.65);line-height:1.85;margin-bottom:1rem}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
@@ -136,48 +72,39 @@ nav ul a:hover{color:var(--navy)}
 .about-quote cite{font-size:0.82rem;color:var(--gold);font-style:normal;letter-spacing:0.06em}
 .join{padding:90px 5%;text-align:center;background:var(--cream)}
 .join-form{max-width:480px;margin:0 auto;display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center}
-.join-form input{
-  flex:1;min-width:200px;font-family:'Heebo',sans-serif;font-size:0.95rem;
-  padding:0.85rem 1.1rem;border:1.5px solid var(--border);border-radius:4px;
-  background:var(--white);color:var(--navy);outline:none;transition:border-color .2s;direction:rtl;
-}
+.join-form input{flex:1;min-width:200px;font-family:'Heebo',sans-serif;font-size:0.95rem;padding:0.85rem 1.1rem;border:1.5px solid var(--border);border-radius:4px;background:var(--white);color:var(--navy);outline:none;transition:border-color .2s;direction:rtl}
 .join-form input:focus{border-color:var(--gold)}
 .join-form input::placeholder{color:#B0A89E}
-.social-row{display:flex;justify-content:center;gap:1rem;margin-top:2.5rem;flex-wrap:wrap}
-.social-pill{
-  display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--warm-gray);
-  border:1px solid var(--border);border-radius:100px;padding:0.4rem 1rem;
-  text-decoration:none;background:var(--white);transition:all .2s;cursor:pointer;
-}
+.social-row{display:flex;justify-content:center;gap:0.75rem;margin-top:2.5rem;flex-wrap:wrap}
+.social-pill{display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--warm-gray);border:1px solid var(--border);border-radius:100px;padding:0.4rem 1rem;text-decoration:none;background:var(--white);transition:all .2s;cursor:pointer}
 .social-pill:hover{border-color:var(--navy);color:var(--navy)}
-footer{
-  background:var(--navy);padding:2rem 5%;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
-}
+footer{background:var(--navy);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
 @media(max-width:700px){
   .about{grid-template-columns:1fr}
+  .about-quote{margin-top:0}
+  .hamburger{display:flex}
   nav ul{
-    display:none;
-    flex-direction:column;
-    position:fixed;
-    top:64px;right:0;left:0;
-    background:var(--cream);
-    border-bottom:1px solid var(--border);
-    padding:1rem 5%;
-    gap:0;
-    z-index:99;
+    display:none;flex-direction:column;
+    position:fixed;top:64px;right:0;left:0;
+    background:var(--cream);border-bottom:2px solid var(--border);
+    padding:0.5rem 5%;gap:0;z-index:99;list-style:none;
   }
   nav ul.open{display:flex}
   nav ul li a{
-    display:block;
-    padding:0.85rem 0;
+    display:block;padding:0.9rem 0;
     border-bottom:1px solid var(--border);
-    font-size:1rem;
-    color:var(--navy)!important;
+    font-size:1rem;color:var(--navy)!important;
+    background:none!important;border-radius:0!important;
   }
   nav ul li:last-child a{border-bottom:none}
-  .hamburger{display:flex}
+  .hero{padding:90px 5% 50px;min-height:auto}
+  .values{padding:60px 5%}
+  .about{padding:60px 5%}
+  .join{padding:60px 5%}
+  .stats{grid-template-columns:1fr 1fr}
+  .social-row{gap:0.5rem}
+  .social-pill{font-size:0.75rem;padding:0.35rem 0.75rem}
 }
 </style>
 </head>
@@ -185,12 +112,17 @@ footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
 
 <nav>
   <a class="logo" href="index.html">תנועת <span>האור</span></a>
-  <ul>
+  <ul id="navMenu">
     <li><a href="#values">ערכים</a></li>
     <li><a href="#about">אודות</a></li>
     <li><a href="media.html">מדיה</a></li>
     <li><a href="#join" class="nav-cta">הצטרף</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="תפריט">
+    <span id="h1"></span>
+    <span id="h2"></span>
+    <span id="h3"></span>
+  </button>
 </nav>
 
 <section class="hero">
@@ -219,7 +151,7 @@ footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
     <div class="value-card">
       <span class="value-icon">🏠</span>
       <h3>חיים בכבוד</h3>
-      <p>פיתוח תעסוקה דיור שווין זכיות מלא מתאים לצרכי הקהילה החרדית.</p>
+      <p>פיתוח תעסוקה, דיור, ושוויון זכויות מלא לקהילה החרדית.</p>
     </div>
     <div class="value-card">
       <span class="value-icon">👨‍👩‍👧‍👦</span>
@@ -243,12 +175,12 @@ footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
     <div class="stats">
       <div class="stat"><span class="stat-num">1.4M</span><span class="stat-label">אזרחים חרדים בישראל</span></div>
       <div class="stat"><span class="stat-num">14%</span><span class="stat-label">מהאוכלוסייה וגדל</span></div>
-      <div class="stat"><span class="stat-num">0</span><span class="stat-label">עשיה למען הציבור כיום</span></div>
+      <div class="stat"><span class="stat-num">0</span><span class="stat-label">עשייה למען הציבור כיום</span></div>
       <div class="stat"><span class="stat-num">עכשיו</span><span class="stat-label">הזמן לשינוי</span></div>
     </div>
   </div>
   <div class="about-quote">
-    <blockquote>"הציבור החרדי זקוק לנציגים שמבינים את חיינו מבפנים — ויודעים לעמוד על זכיותינו."</blockquote>
+    <blockquote>"הציבור החרדי זקוק לנציגים שמבינים את חיינו מבפנים — ויודעים לעמוד על זכויותינו."</blockquote>
     <cite>— מייסדי התנועה</cite>
   </div>
 </section>
@@ -258,37 +190,50 @@ footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
   <h2 class="section-title">יחד נעשה את ההבדל</h2>
   <p class="section-sub">השאר פרטים ונעדכן אותך בהתפתחויות, אירועים, ודרכי תמיכה.</p>
   <form action="https://github.us8.list-manage.com/subscribe/post?u=e19584c201c1e9469a9aee5e5&amp;id=c1a7ec6efe&amp;f_id=00c663e1f0" method="post" target="_blank">
-  <div class="join-form">
-    <input type="text" name="FNAME" placeholder="שם מלא" />
-    <input type="tel" name="PHONE" placeholder="טלפון / ווצאפ" />
-    <input type="email" name="EMAIL" placeholder="אימייל" required />
-    <div style="position:absolute;left:-5000px" aria-hidden="true">
-      <input type="text" name="b_e19584c201c1e9469a9aee5e5_c1a7ec6efe" tabindex="-1" value="">
+    <div class="join-form">
+      <input type="text" name="FNAME" placeholder="שם מלא" />
+      <input type="tel" name="PHONE" placeholder="טלפון / ווצאפ" />
+      <input type="email" name="EMAIL" placeholder="אימייל" required />
+      <div style="position:absolute;left:-5000px" aria-hidden="true">
+        <input type="text" name="b_e19584c201c1e9469a9aee5e5_c1a7ec6efe" tabindex="-1" value="">
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;border:none">הצטרף לתנועה ←</button>
     </div>
-    <button type="submit" class="btn-primary" style="width:100%;border:none">הצטרף לתנועה ←</button>
-  </div>
-</form>
+  </form>
   <div class="social-row">
-   <a class="social-pill" href="https://www.facebook.com/profile.php?id=61591246927272" target="_blank">📘 פייסבוק</a>
-<a class="social-pill" href="https://www.instagram.com/tnuathaohr" target="_blank">📷 אינסטגרם</a>
-<a class="social-pill" href="https://wa.me/" target="_blank">💬 ווצאפ</a>
-<a class="social-pill" href="https://t.me/+kB3YsDpSEAwyODg0" target="_blank">✈️ טלגרם</a>
-<a class="social-pill" href="https://x.com/tnuathaohr" target="_blank">🐦 X</a>
+    <a class="social-pill" href="https://www.facebook.com/profile.php?id=61591246927272" target="_blank">📘 פייסבוק</a>
+    <a class="social-pill" href="https://www.instagram.com/tnuathaohr" target="_blank">📷 אינסטגרם</a>
+    <a class="social-pill" href="https://wa.me/" target="_blank">💬 ווצאפ</a>
+    <a class="social-pill" href="https://t.me/+kB3YsDpSEAwyODg0" target="_blank">✈️ טלגרם</a>
+    <a class="social-pill" href="https://x.com/tnuathaohr" target="_blank">🐦 X</a>
   </div>
 </section>
-<script>
-function submitForm(){
-  const name = document.querySelector('input[placeholder="שם מלא"]').value;
-  const phone = document.querySelector('input[placeholder="טלפון / ווצאפ"]').value;
-  const email = document.querySelector('input[placeholder="אימייל"]').value;
-  if(!name || !email){alert('נא למלא שם ואימייל');return;}
-  window.location.href = 'mailto:tnuathaohr@gmail.com?subject=הצטרפות לתנועת האור&body=שם: '+name+'%0Aטלפון: '+phone+'%0Aאימייל: '+email;
-}
-</script>
+
 <footer>
   <a class="logo" href="index.html" style="color:var(--white)">תנועת <span style="color:var(--gold)">האור</span></a>
   <p>© 2026 תנועת האור · כל הזכויות שמורות</p>
 </footer>
 
+<script>
+function toggleMenu(){
+  const menu = document.getElementById('navMenu');
+  const h1 = document.getElementById('h1');
+  const h2 = document.getElementById('h2');
+  const h3 = document.getElementById('h3');
+  menu.classList.toggle('open');
+  const isOpen = menu.classList.contains('open');
+  h1.style.transform = isOpen ? 'translateY(7px) rotate(45deg)' : 'none';
+  h2.style.opacity = isOpen ? '0' : '1';
+  h3.style.transform = isOpen ? 'translateY(-7px) rotate(-45deg)' : 'none';
+}
+document.querySelectorAll('#navMenu a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('navMenu').classList.remove('open');
+    document.getElementById('h1').style.transform = 'none';
+    document.getElementById('h2').style.opacity = '1';
+    document.getElementById('h3').style.transform = 'none';
+  });
+});
+</script>
 </body>
 </html>
