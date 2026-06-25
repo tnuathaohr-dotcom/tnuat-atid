@@ -131,7 +131,27 @@ footer{
 footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
 @media(max-width:700px){
   .about{grid-template-columns:1fr}
-  nav ul{display:none}
+  nav ul{
+    display:none;
+    flex-direction:column;
+    position:fixed;
+    top:64px;right:0;left:0;
+    background:var(--cream);
+    border-bottom:1px solid var(--border);
+    padding:1rem 5%;
+    gap:0;
+    z-index:99;
+  }
+  nav ul.open{display:flex}
+  nav ul li a{
+    display:block;
+    padding:0.85rem 0;
+    border-bottom:1px solid var(--border);
+    font-size:1rem;
+    color:var(--navy)!important;
+  }
+  nav ul li:last-child a{border-bottom:none}
+  .hamburger{display:flex}
 }
 </style>
 </head>
