@@ -80,11 +80,27 @@ nav ul a:hover{color:var(--navy)}
 .social-pill:hover{border-color:var(--navy);color:var(--navy)}
 footer{background:var(--navy);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
+  .hero{justify-content:space-between;align-items:center}
+.hero-logo-side{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding-left:2rem;
+}
+.hero-inner{flex:1}
 @media(max-width:700px){
   .about{grid-template-columns:1fr}
   .about-quote{margin-top:0}
   .hamburger{display:flex}
   nav ul{
+    .hero{flex-direction:column}
+.hero-logo-side{
+  width:100%;
+  justify-content:center;
+  padding:0 0 2rem 0;
+}
+.hero-logo-side img{max-width:280px}
     display:none;flex-direction:column;
     position:fixed;top:64px;right:0;left:0;
     background:var(--cream);border-bottom:2px solid var(--border);
@@ -126,6 +142,9 @@ footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
 </nav>
 
 <section class="hero">
+  <div class="hero-logo-side">
+    <img src="logo.png" alt="תנועת האור" style="max-width:380px;width:90%;opacity:0.92;">
+  </div>
   <div class="hero-inner">
     <span class="eyebrow">מפלגה לכנסת ישראל</span>
     <h1>קהילה חזקה,<br><em>קול אמיתי</em><br>בכנסת</h1>
