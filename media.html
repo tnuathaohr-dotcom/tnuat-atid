@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="חומרי קמפיין — תמונות, סרטונים והקלטות של תנועת האור">
+<meta property="og:title" content="מדיה — תנועת האור | כי מגיע לנו יותר">
+<meta property="og:type" content="website">
+<title>מדיה | תנועת האור</title>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700;900&family=Heebo:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0D1B2A;
+  --gold:#B8912A;
+  --gold-light:#D4A843;
+  --cream:#F9F6F0;
+  --warm-gray:#6B6560;
+  --border:#E2DDD6;
+  --white:#FFFFFF;
+  --tag-bg:#EEE9E1;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:var(--cream);color:var(--navy);direction:rtl;font-size:16px;line-height:1.7}
+nav{
+  position:fixed;top:0;right:0;left:0;z-index:100;
+  background:rgba(249,246,240,0.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;height:64px;
+}
+.logo{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:1.2rem;color:var(--navy);text-decoration:none}
+.logo span{color:var(--gold)}
+nav ul{display:flex;gap:1.5rem;list-style:none}
+nav ul a{font-size:0.875rem;font-weight:400;color:var(--warm-gray);text-decoration:none;transition:color .2s}
+nav ul a:hover{color:var(--navy)}
+.nav-cta{background:var(--navy);color:var(--white)!important;padding:0.45rem 1.1rem;border-radius:4px;font-weight:500!important}
+.nav-cta:hover{background:var(--gold)!important}
+.page-header{background:var(--navy);padding:100px 5% 50px;text-align:right}
+.eyebrow{
+  display:inline-block;font-size:0.72rem;font-weight:500;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,145,42,0.4);
+  padding:0.28rem 0.8rem;border-radius:2px;margin-bottom:1.2rem;
+}
+.page-header h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:0.8rem}
+.copyright-notice{
+  font-size:0.72rem;color:rgba(255,255,255,0.38);line-height:1.6;max-width:620px;
+  border-top:1px solid rgba(255,255,255,0.1);padding-top:0.8rem;margin-top:1.4rem;
+}
+.filter-bar{
+  background:var(--white);border-bottom:1px solid var(--border);padding:0 5%;
+  display:flex;align-items:center;gap:0.6rem;overflow-x:auto;white-space:nowrap;
+  scrollbar-width:none;height:52px;position:sticky;top:64px;z-index:90;
+}
+.filter-bar::-webkit-scrollbar{display:none}
+.filter-btn{
+  font-family:'Heebo',sans-serif;font-size:0.8rem;font-weight:400;
+  padding:0.35rem 1rem;border-radius:100px;border:1.5px solid var(--border);
+  background:transparent;color:var(--warm-gray);cursor:pointer;transition:all .18s;flex-shrink:0;
+}
+.filter-btn.active,.filter-btn:hover{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.media-section{padding:40px 5% 80px}
+.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
+.media-card{
+  background:var(--white);border:1px solid var(--border);border-radius:8px;
+  overflow:hidden;transition:box-shadow .2s,transform .2s;cursor:pointer;
+  display:flex;flex-direction:column;
+}
+.media-card:hover{box-shadow:0 8px 32px rgba(13,27,42,0.1);transform:translateY(-2px)}
+.thumb{width:100%;aspect-ratio:16/9;background:var(--navy);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.thumb.audio-thumb{background:linear-gradient(135deg,#1a2e45 0%,#0D1B2A 100%);aspect-ratio:16/7}
+.play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(13,27,42,0.35);opacity:0;transition:opacity .2s}
+.media-card:hover .play-overlay{opacity:1}
+.play-btn{width:52px;height:52px;border-radius:50%;background:rgba(184,145,42,0.9);display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.new-badge{position:absolute;top:10px;right:10px;background:var(--gold);color:var(--white);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;padding:0.22rem 0.6rem;border-radius:2px;text-transform:uppercase}
+.media-type-icon{position:absolute;bottom:10px;left:10px;background:rgba(13,27,42,0.7);color:var(--white);font-size:0.72rem;padding:0.22rem 0.6rem;border-radius:100px;display:flex;align-items:center;gap:0.3rem}
+.audio-wave{display:flex;align-items:center;gap:3px;height:40px;padding:0 1.5rem}
+.audio-wave span{display:inline-block;width:4px;border-radius:2px;background:var(--gold);opacity:0.7;animation:wave 1.2s ease-in-out infinite}
+.audio-wave span:nth-child(2){animation-delay:.1s;height:28px}
+.audio-wave span:nth-child(3){animation-delay:.2s;height:38px}
+.audio-wave span:nth-child(4){animation-delay:.3s;height:22px}
+.audio-wave span:nth-child(5){animation-delay:.4s;height:34px}
+.audio-wave span:nth-child(6){animation-delay:.5s;height:18px}
+.audio-wave span:nth-child(7){animation-delay:.6s;height:32px}
+.audio-wave span:nth-child(8){animation-delay:.7s;height:26px}
+@keyframes wave{0%,100%{transform:scaleY(1);opacity:0.5}50%{transform:scaleY(1.6);opacity:1}}
+.card-body{padding:1.1rem 1.2rem 1.3rem;flex:1;display:flex;flex-direction:column}
+.card-meta{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;flex-wrap:wrap}
+.tag{font-size:0.68rem;font-weight:500;letter-spacing:0.06em;background:var(--tag-bg);color:var(--warm-gray);padding:0.18rem 0.55rem;border-radius:100px}
+.date{font-size:0.72rem;color:#B0A89E;margin-right:auto}
+.card-body h3{font-family:'Frank Ruhl Libre',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;line-height:1.35}
+.card-body p{font-size:0.83rem;color:var(--warm-gray);line-height:1.6;flex:1}
+.card-footer{margin-top:1rem;padding-top:0.8rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.duration{font-size:0.75rem;color:#B0A89E;display:flex;align-items:center;gap:0.3rem}
+.share-btn{font-size:0.75rem;color:var(--warm-gray);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:0.3rem;transition:color .2s}
+.share-btn:hover{color:var(--navy)}
+.upload-area{
+  border:2px dashed var(--border);border-radius:8px;padding:2.5rem;
+  text-align:center;background:var(--white);margin-bottom:1.5rem;
+  transition:border-color .2s;cursor:pointer;
+}
+.upload-area:hover{border-color:var(--gold)}
+.upload-area .icon{font-size:2.2rem;margin-bottom:0.8rem}
+.upload-area h4{font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;font-weight:700;margin-bottom:0.4rem;color:var(--navy)}
+.upload-area p{font-size:0.82rem;color:var(--warm-gray)}
+.upload-area .formats{font-size:0.72rem;color:#B0A89E;margin-top:0.6rem;letter-spacing:0.04em}
+.empty-msg{display:none;text-align:center;padding:3rem;color:var(--warm-gray);font-size:0.9rem;grid-column:1/-1}
+footer{background:var(--navy);padding:1.8rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+footer p{font-size:0.75rem;color:rgba(255,255,255,0.3)}
+@media(max-width:600px){
+  .media-grid{grid-template-columns:1fr}
+  nav ul{display:none}
+  .page-header{padding:90px 4% 40px}
+  .media-section{padding:30px 4% 60px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">תנועת <span>האור</span></a>
+  <ul>
+    <li><a href="index.html">ראשי</a></li>
+    <li><a href="index.html#values">ערכים</a></li>
+    <li><a href="index.html#join" class="nav-cta">הצטרף</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <span class="eyebrow">חומרי קמפיין</span>
+  <h1>מדיה ותוכן</h1>
+  <p style="font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;color:var(--gold-light);margin-top:0.4rem;letter-spacing:0.02em">כי מגיע לנו יותר.</p>
+  <p style="color:rgba(255,255,255,0.55);font-size:0.97rem;max-width:500px;margin-top:0.5rem">
+    תמונות, סרטונים, והקלטות — כל החומרים של תנועת האור במקום אחד.
+  </p>
+  <div class="copyright-notice">
+    ⚖️ לפי סעיף 27א לחוק זכויות יוצרים, התשס"ח–2007, השימוש בחומרים המוצגים בדף זה, לרבות העתקה, הפצה, שידור, והצגה פומבית, אסור ללא אישור מפורש בכתב מאת תנועת האור. כל הזכויות שמורות לתנועת האור © 2025
+  </div>
+</div>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterMedia('all',this)">🗂 הכל</button>
+  <button class="filter-btn" onclick="filterMedia('image',this)">🖼 תמונות</button>
+  <button class="filter-btn" onclick="filterMedia('video',this)">🎬 סרטונים</button>
+  <button class="filter-btn" onclick="filterMedia('audio',this)">🎙 הקלטות</button>
+</div>
+
+<section class="media-section">
+  <div class="upload-area" onclick="alert('בגרסת האתר האמיתי — כאן יהיה ממשק העלאת קבצים למנהל')">
+    <div class="icon">📤</div>
+    <h4>העלה חומר חדש</h4>
+    <p>לחץ כדי לבחור קובץ, או גרור לכאן</p>
+    <div class="formats">JPG · PNG · MP4 · MOV · MP3 · WAV · M4A</div>
+  </div>
+
+  <div class="media-grid" id="mediaGrid">
+
+    <div class="media-card" data-type="video">
+      <div class="thumb">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a3a5c,#0D1B2A);display:flex;align-items:center;justify-content:center"><span style="font-size:3rem">🎬</span></div>
+        <div class="new-badge">חדש</div>
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+        <div class="media-type-icon">🎬 סרטון</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta"><span class="tag">נאום</span><span class="date">24.06.2025</span></div>
+        <h3>נאום הפתיחה של תנועת האור</h3>
+        <p>מייסדי התנועה מציגים לראשונה את הפלטפורמה המלאה לציבור.</p>
+        <div class="card-footer"><span class="duration">⏱ 4:32</span><button class="share-btn">שתף ↗</button></div>
+      </div>
+    </div>
+
+    <div class="media-card" data-type="image">
+      <div class="thumb">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#2c1810,#1a0f0a);display:flex;align-items:center;justify-content:center"><span style="font-size:3rem">🖼</span></div>
+        <div class="play-overlay"><div class="play-btn" style="font-size:1.2rem">🔍</div></div>
+        <div class="media-type-icon">🖼 תמונה</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta"><span class="tag">אירוע</span><span class="date">20.06.2025</span></div>
+        <h3>כינוס מייסדים — ירושלים</h3>
+        <p>תמונות מהכינוס המייסד הראשון של התנועה בירושלים.</p>
+        <div class="card-footer"><span class="duration">📸 12 תמונות</span><button class="share-btn">שתף ↗</button></div>
+      </div>
+    </div>
+
+    <div class="media-card" data-type="audio">
+      <div class="thumb audio-thumb">
+        <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem">
+          <span style="font-size:1.8rem">🎙</span>
+          <div class="audio-wave"><span style="height:14px"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div class="media-type-icon">🎙 הקלטה</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta"><span class="tag">ראיון</span><span class="date">15.06.2025</span></div>
+        <h3>ראיון ברדיו קול חי</h3>
+        <p>מנהיג התנועה מסביר את הפלטפורמה הכלכלית לקהל הרחב.</p>
+        <div class="card-footer"><span class="duration">⏱ 18:45</span><button class="share-btn">שתף ↗</button></div>
+      </div>
+    </div>
+
+    <div class="media-card" data-type="video">
+      <div class="thumb">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a2e1a,#051a0e);display:flex;align-items:center;justify-content:center"><span style="font-size:3rem">🎬</span></div>
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+        <div class="media-type-icon">🎬 סרטון</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta"><span class="tag">פרסומת</span><span class="date">10.06.2025</span></div>
+        <h3>סרטון קמפיין — משפחה ועתיד</h3>
+        <p>הסרטון הראשי של הקמפיין לפרסום ברשתות החברתיות.</p>
+        <div class="card-footer"><span class="duration">⏱ 1:00</span><button class="share-btn">שתף ↗</button></div>
+      </div>
+    </div>
+
+    <div class="media-card" data-type="image">
+      <div class="thumb">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#1c1c3a,#0e0e22);display:flex;align-items:center;justify-content:center"><span style="font-size:3rem">🖼</span></div>
+        <div class="play-overlay"><div class="play-btn" style="font-size:1.2rem">🔍</div></div>
+        <div class="media-type-icon">🖼 תמונה</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta"><span class="tag">עיצוב</span><span class="date">05.06.2025</span></div>
+        <h3>חומרי עיצוב רשמיים</h3>
+        <p>לוגו, צבעי המפלגה, ותבניות לשימוש בפרסום.</p>
+        <div class="card-footer"><span class="duration">📸 8 קבצים</span><button class="share-btn">שתף ↗</button></div>
+      </div>
+    </div>
+
+    <div class="media-card" data-type="audio">
+      <div class="thumb audio-thumb">
+        <div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem">
+          <span style="font-size:1.8rem">🎙</span>
+          <div class="audio-wave"><span style="height:14px"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div class="media-type-icon">🎙 הקלטה</div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta"><span class="tag">שיחה פנימית</span><span class="date">01.06.2025</span></div>
+        <h3>ישיבת מייסדים — הקלטה מלאה</h3>
+        <p>הקלטת הישיבה המייסדת, דיון בפלטפורמה ובמסרים המרכזיים.</p>
+        <div class="card-footer"><span class="duration">⏱ 1:12:00</span><button class="share-btn">שתף ↗</button></div>
+      </div>
+    </div>
+
+    <div class="empty-msg" id="emptyMsg">אין פריטים בסינון זה כרגע.</div>
+  </div>
+</section>
+
+<footer>
+  <a class="logo" href="index.html" style="color:var(--white)">תנועת <span style="color:var(--gold)">האור</span></a>
+  <p>© 2025 תנועת האור · לפי סעיף 27א לחוק זכויות יוצרים</p>
+</footer>
+
+<script>
+function filterMedia(type,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const cards=document.querySelectorAll('.media-card');
+  let visible=0;
+  cards.forEach(c=>{
+    if(type==='all'||c.dataset.type===type){c.style.display='flex';visible++}
+    else{c.style.display='none'}
+  });
+  document.getElementById('emptyMsg').style.display=visible===0?'block':'none';
+}
+</script>
+</body>
+</html>

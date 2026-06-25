@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="תנועת האור — כי מגיע לנו יותר. נציגות אמיתית לציבור החרדי בכנסת ישראל.">
+<meta property="og:title" content="תנועת האור — כי מגיע לנו יותר">
+<meta property="og:description" content="קהילה חזקה, קול אמיתי בכנסת. כי מגיע לנו יותר.">
+<meta property="og:type" content="website">
+<title>תנועת האור | כי מגיע לנו יותר</title>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0D1B2A;
+  --gold:#B8912A;
+  --gold-light:#D4A843;
+  --cream:#F9F6F0;
+  --warm-gray:#6B6560;
+  --border:#E2DDD6;
+  --white:#FFFFFF;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Heebo',sans-serif;
+  background:var(--cream);
+  color:var(--navy);
+  direction:rtl;
+  font-size:16px;
+  line-height:1.7;
+}
+nav{
+  position:fixed;top:0;right:0;left:0;z-index:100;
+  background:rgba(249,246,240,0.95);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;
+}
+.logo{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:1.25rem;color:var(--navy);text-decoration:none}
+.logo span{color:var(--gold)}
+nav ul{display:flex;gap:2rem;list-style:none}
+nav ul a{font-size:0.875rem;font-weight:400;color:var(--warm-gray);text-decoration:none;transition:color .2s}
+nav ul a:hover{color:var(--navy)}
+.nav-cta{background:var(--navy);color:var(--white)!important;padding:0.45rem 1.1rem;border-radius:4px;font-weight:500!important}
+.nav-cta:hover{background:var(--gold)!important}
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:100px 5% 60px;background:var(--navy);position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-10%;left:-5%;
+  width:55%;height:120%;
+  background:radial-gradient(ellipse at center,rgba(184,145,42,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{max-width:680px;position:relative;z-index:1}
+.eyebrow{
+  display:inline-block;font-size:0.75rem;font-weight:500;
+  letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);
+  border:1px solid rgba(184,145,42,0.4);padding:0.3rem 0.85rem;border-radius:2px;margin-bottom:1.6rem;
+}
+.hero h1{
+  font-family:'Frank Ruhl Libre',serif;
+  font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;
+  color:var(--white);line-height:1.15;margin-bottom:1.4rem;
+}
+.hero h1 em{font-style:normal;color:var(--gold-light)}
+.hero p{font-size:1.05rem;font-weight:300;color:rgba(255,255,255,0.72);max-width:520px;margin-bottom:2.4rem;line-height:1.8}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.btn-primary{
+  background:var(--gold);color:var(--white);font-family:'Heebo',sans-serif;
+  font-size:0.95rem;font-weight:500;padding:0.85rem 2rem;border-radius:4px;
+  border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s,transform .15s;
+}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-ghost{
+  background:transparent;color:rgba(255,255,255,0.75);font-family:'Heebo',sans-serif;
+  font-size:0.95rem;font-weight:400;padding:0.85rem 1.6rem;border-radius:4px;
+  border:1px solid rgba(255,255,255,0.25);cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.6);color:var(--white)}
+.divider{height:4px;background:var(--gold);width:48px;margin:0 0 1.2rem}
+.values{padding:90px 5%}
+.section-label{font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem}
+.section-title{font-family:'Frank Ruhl Libre',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:1rem}
+.section-sub{font-size:1rem;color:var(--warm-gray);max-width:540px;margin-bottom:3rem}
+.values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
+.value-card{
+  background:var(--white);border:1px solid var(--border);border-radius:6px;
+  padding:2rem 1.75rem;transition:box-shadow .2s,transform .2s;
+}
+.value-card:hover{box-shadow:0 8px 32px rgba(13,27,42,0.09);transform:translateY(-2px)}
+.value-icon{font-size:1.6rem;margin-bottom:1rem;display:block}
+.value-card h3{font-family:'Frank Ruhl Libre',serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem}
+.value-card p{font-size:0.9rem;color:var(--warm-gray);line-height:1.7}
+.about{
+  background:var(--navy);padding:90px 5%;
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;
+}
+.about-text h2{font-family:'Frank Ruhl Libre',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:1.2rem}
+.about-text p{font-size:0.97rem;color:rgba(255,255,255,0.65);line-height:1.85;margin-bottom:1rem}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+.stat{border-right:2px solid var(--gold);padding-right:1.2rem}
+.stat-num{font-family:'Frank Ruhl Libre',serif;font-size:2.2rem;font-weight:900;color:var(--white);display:block;line-height:1}
+.stat-label{font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:0.3rem}
+.about-quote{background:rgba(255,255,255,0.05);border:1px solid rgba(184,145,42,0.3);border-radius:8px;padding:2.5rem}
+.about-quote blockquote{font-family:'Frank Ruhl Libre',serif;font-size:1.35rem;font-weight:400;color:rgba(255,255,255,0.88);line-height:1.65;margin-bottom:1.5rem}
+.about-quote cite{font-size:0.82rem;color:var(--gold);font-style:normal;letter-spacing:0.06em}
+.join{padding:90px 5%;text-align:center;background:var(--cream)}
+.join-form{max-width:480px;margin:0 auto;display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center}
+.join-form input{
+  flex:1;min-width:200px;font-family:'Heebo',sans-serif;font-size:0.95rem;
+  padding:0.85rem 1.1rem;border:1.5px solid var(--border);border-radius:4px;
+  background:var(--white);color:var(--navy);outline:none;transition:border-color .2s;direction:rtl;
+}
+.join-form input:focus{border-color:var(--gold)}
+.join-form input::placeholder{color:#B0A89E}
+.social-row{display:flex;justify-content:center;gap:1rem;margin-top:2.5rem;flex-wrap:wrap}
+.social-pill{
+  display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--warm-gray);
+  border:1px solid var(--border);border-radius:100px;padding:0.4rem 1rem;
+  text-decoration:none;background:var(--white);transition:all .2s;cursor:pointer;
+}
+.social-pill:hover{border-color:var(--navy);color:var(--navy)}
+footer{
+  background:var(--navy);padding:2rem 5%;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
+@media(max-width:700px){
+  .about{grid-template-columns:1fr}
+  nav ul{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">תנועת <span>האור</span></a>
+  <ul>
+    <li><a href="#values">ערכים</a></li>
+    <li><a href="#about">אודות</a></li>
+    <li><a href="media.html">מדיה</a></li>
+    <li><a href="#join" class="nav-cta">הצטרף</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">מפלגה לכנסת ישראל</span>
+    <h1>קהילה חזקה,<br><em>קול אמיתי</em><br>בכנסת</h1>
+    <p style="font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;font-weight:400;color:var(--gold-light);margin-bottom:0.8rem;letter-spacing:0.02em">כי מגיע לנו יותר.</p>
+    <p>אנחנו מייצגים את הציבור החרדי — צרכיו, ערכיו, ועתידו. משפחה, תורה, ופרנסה בכבוד.</p>
+    <div class="hero-actions">
+      <a href="#join" class="btn-primary">הצטרף לתנועה</a>
+      <a href="#about" class="btn-ghost">קרא עוד</a>
+    </div>
+  </div>
+</section>
+
+<section class="values" id="values">
+  <div class="section-label">מה אנחנו מאמינים</div>
+  <h2 class="section-title">הערכים שמובילים אותנו</h2>
+  <p class="section-sub">ארבעה עמודים שעליהם בנויה התנועה שלנו — לא סיסמאות, אלא מדיניות אמיתית.</p>
+  <div class="values-grid">
+    <div class="value-card">
+      <span class="value-icon">📚</span>
+      <h3>שמירת מסורת</h3>
+      <p>הגנה על זכות הלימוד התורני ועל אורח החיים הדתי ללא פגיעה.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">🏠</span>
+      <h3>פרנסה בכבוד</h3>
+      <p>פיתוח תעסוקה ודיור מתאים לצרכי הקהילה החרדית.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">👨‍👩‍👧‍👦</span>
+      <h3>משפחה במרכז</h3>
+      <p>תמיכה במשפחות גדולות — חינוך, רווחה, ובריאות.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">🤝</span>
+      <h3>שותפות לאומית</h3>
+      <p>שילוב הציבור החרדי בחיי המדינה תוך שמירת זהותו.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-text">
+    <div class="divider"></div>
+    <h2>תנועה שנולדה מתוך הקהילה</h2>
+    <p>אנחנו לא פוליטיקאים ותיקים — אנחנו אנשים מהשטח, שמכירים את האתגרים היומיומיים של חיים חרדיים במדינת ישראל.</p>
+    <p>המטרה שלנו פשוטה: להביא נציגות אמיתית, לא מינויים, ולשנות סדרי עדיפויות לטובת הציבור שלנו.</p>
+    <div class="stats">
+      <div class="stat"><span class="stat-num">1.2M</span><span class="stat-label">אזרחים חרדים בישראל</span></div>
+      <div class="stat"><span class="stat-num">16%</span><span class="stat-label">מהאוכלוסייה וגדל</span></div>
+      <div class="stat"><span class="stat-num">0</span><span class="stat-label">מפלגות חדשות שמייצגות</span></div>
+      <div class="stat"><span class="stat-num">עכשיו</span><span class="stat-label">הזמן לשינוי</span></div>
+    </div>
+  </div>
+  <div class="about-quote">
+    <blockquote>"עם ישראל זקוק לנציגים שמבינים את חיינו מבפנים — לא מסתכלים עלינו מבחוץ."</blockquote>
+    <cite>— מייסדי התנועה</cite>
+  </div>
+</section>
+
+<section class="join" id="join">
+  <div class="section-label">הצטרף אלינו</div>
+  <h2 class="section-title">יחד נעשה את ההבדל</h2>
+  <p class="section-sub">השאר פרטים ונעדכן אותך בהתפתחויות, אירועים, ודרכי תמיכה.</p>
+  <div class="join-form">
+    <input type="text" placeholder="שם מלא" />
+    <input type="tel" placeholder="טלפון / ווצאפ" />
+    <input type="email" placeholder="אימייל" />
+    <button class="btn-primary" style="width:100%;border:none">הצטרף לתנועה ←</button>
+  </div>
+  <div class="social-row">
+    <a class="social-pill" href="#">📘 פייסבוק</a>
+    <a class="social-pill" href="#">📷 אינסטגרם</a>
+    <a class="social-pill" href="#">💬 ווצאפ</a>
+    <a class="social-pill" href="#">✈️ טלגרם</a>
+    <a class="social-pill" href="#">🐦 X</a>
+  </div>
+</section>
+
+<footer>
+  <a class="logo" href="index.html" style="color:var(--white)">תנועת <span style="color:var(--gold)">האור</span></a>
+  <p>© 2025 תנועת האור · כל הזכויות שמורות</p>
+</footer>
+
+</body>
+</html>
