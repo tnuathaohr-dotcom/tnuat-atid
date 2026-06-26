@@ -108,6 +108,8 @@ footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
 
 @media(max-width:700px){
   *{max-width:100%}
+  html,body{overflow-x:hidden}
+  .hero{overflow:hidden}
   .about{grid-template-columns:1fr}
   .about-quote{margin-top:0}
   .hamburger{display:flex}
@@ -126,9 +128,9 @@ footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
   }
   nav ul li:last-child a{border-bottom:none}
   .hero{flex-direction:column;padding:90px 5% 50px;min-height:auto;gap:2rem;flex-direction:column!important}
-  .hero-logo-side{width:100%}
+  .hero-logo-side{width:100%;order:2}
+  .hero-inner{width:100%;order:1}
   .hero-logo-side img{max-width:280px;margin:0 auto;display:block}
-  .hero-inner{width:100%}
   .values{padding:60px 5%}
   .about{padding:60px 5%}
   .join{padding:60px 5%}
