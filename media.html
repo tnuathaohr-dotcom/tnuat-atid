@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="חומרי קמפיין — תמונות, סרטונים והקלטות של תנועת האור">
-<meta property="og:title" content="מדיה — תנועת האור | כי מגיע לנו יותר">
+<meta property="og:title" content="מדיה — תנועת האור | כי אתה ראוי ליותר">
 <meta property="og:type" content="website">
 <title>מדיה | תנועת האור</title>
 <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700;900&family=Heebo:wght@300;400;500&display=swap" rel="stylesheet">
@@ -35,7 +35,22 @@ nav ul a{font-size:0.875rem;font-weight:400;color:var(--warm-gray);text-decorati
 nav ul a:hover{color:var(--navy)}
 .nav-cta{background:var(--navy);color:var(--white)!important;padding:0.45rem 1.1rem;border-radius:4px;font-weight:500!important}
 .nav-cta:hover{background:var(--gold)!important}
-.page-header{background:var(--navy);padding:100px 5% 50px;text-align:right}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--navy);transition:all .3s;border-radius:2px}
+
+/* PAGE HEADER */
+.page-header{
+  background:var(--navy);padding:100px 5% 50px;
+  display:flex;align-items:center;justify-content:space-between;gap:3rem;
+}
+.page-header-text{flex:1}
+.page-header-logo{
+  flex:1;display:flex;align-items:center;justify-content:center;
+}
+.page-header-logo img{
+  max-width:320px;width:100%;
+  filter:drop-shadow(0 0 30px rgba(184,145,42,0.15));
+}
 .eyebrow{
   display:inline-block;font-size:0.72rem;font-weight:500;letter-spacing:0.14em;
   text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,145,42,0.4);
@@ -60,11 +75,7 @@ nav ul a:hover{color:var(--navy)}
 .filter-btn.active,.filter-btn:hover{background:var(--navy);border-color:var(--navy);color:var(--white)}
 .media-section{padding:40px 5% 80px}
 .media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
-.media-card{
-  background:var(--white);border:1px solid var(--border);border-radius:8px;
-  overflow:hidden;transition:box-shadow .2s,transform .2s;cursor:pointer;
-  display:flex;flex-direction:column;
-}
+.media-card{background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:box-shadow .2s,transform .2s;cursor:pointer;display:flex;flex-direction:column}
 .media-card:hover{box-shadow:0 8px 32px rgba(13,27,42,0.1);transform:translateY(-2px)}
 .thumb{width:100%;aspect-ratio:16/9;background:var(--navy);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .thumb.audio-thumb{background:linear-gradient(135deg,#1a2e45 0%,#0D1B2A 100%);aspect-ratio:16/7}
@@ -93,11 +104,7 @@ nav ul a:hover{color:var(--navy)}
 .duration{font-size:0.75rem;color:#B0A89E;display:flex;align-items:center;gap:0.3rem}
 .share-btn{font-size:0.75rem;color:var(--warm-gray);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:0.3rem;transition:color .2s}
 .share-btn:hover{color:var(--navy)}
-.upload-area{
-  border:2px dashed var(--border);border-radius:8px;padding:2.5rem;
-  text-align:center;background:var(--white);margin-bottom:1.5rem;
-  transition:border-color .2s;cursor:pointer;
-}
+.upload-area{border:2px dashed var(--border);border-radius:8px;padding:2.5rem;text-align:center;background:var(--white);margin-bottom:1.5rem;transition:border-color .2s;cursor:pointer}
 .upload-area:hover{border-color:var(--gold)}
 .upload-area .icon{font-size:2.2rem;margin-bottom:0.8rem}
 .upload-area h4{font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;font-weight:700;margin-bottom:0.4rem;color:var(--navy)}
@@ -106,10 +113,21 @@ nav ul a:hover{color:var(--navy)}
 .empty-msg{display:none;text-align:center;padding:3rem;color:var(--warm-gray);font-size:0.9rem;grid-column:1/-1}
 footer{background:var(--navy);padding:1.8rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 footer p{font-size:0.75rem;color:rgba(255,255,255,0.3)}
-@media(max-width:600px){
+
+@media(max-width:700px){
+  .page-header{flex-direction:column;padding:90px 4% 40px;gap:2rem}
+  .page-header-logo img{max-width:220px}
   .media-grid{grid-template-columns:1fr}
-  nav ul{display:none}
-  .page-header{padding:90px 4% 40px}
+  .hamburger{display:flex}
+  nav ul{
+    display:none;flex-direction:column;
+    position:fixed;top:64px;right:0;left:0;
+    background:var(--cream);border-bottom:2px solid var(--border);
+    padding:0.5rem 5%;gap:0;z-index:99;list-style:none;
+  }
+  nav ul.open{display:flex}
+  nav ul li a{display:block;padding:0.9rem 0;border-bottom:1px solid var(--border);font-size:1rem;color:var(--navy)!important;background:none!important;border-radius:0!important}
+  nav ul li:last-child a{border-bottom:none}
   .media-section{padding:30px 4% 60px}
 }
 </style>
@@ -118,22 +136,32 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.3)}
 
 <nav>
   <a class="logo" href="index.html">תנועת <span>האור</span></a>
-  <ul>
+  <ul id="navMenu">
     <li><a href="index.html">ראשי</a></li>
     <li><a href="index.html#values">ערכים</a></li>
     <li><a href="index.html#join" class="nav-cta">הצטרף</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="תפריט">
+    <span id="h1"></span>
+    <span id="h2"></span>
+    <span id="h3"></span>
+  </button>
 </nav>
 
 <div class="page-header">
-  <span class="eyebrow">חומרי קמפיין</span>
-  <h1>מדיה ותוכן</h1>
-  <p style="font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;color:var(--gold-light);margin-top:0.4rem;letter-spacing:0.02em">כי מגיע לנו יותר.</p>
-  <p style="color:rgba(255,255,255,0.55);font-size:0.97rem;max-width:500px;margin-top:0.5rem">
-    תמונות, סרטונים, והקלטות — כל החומרים של תנועת האור במקום אחד.
-  </p>
-  <div class="copyright-notice">
-    ⚖️ לפי סעיף 27א לחוק זכויות יוצרים, כל הזכויות שמורות לתנועת האור © 2026
+  <div class="page-header-text">
+    <span class="eyebrow">חומרי קמפיין</span>
+    <h1>מדיה ותוכן</h1>
+    <p style="font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;color:var(--gold-light);margin-top:0.4rem;letter-spacing:0.02em">כי אתה ראוי ליותר.</p>
+    <p style="color:rgba(255,255,255,0.55);font-size:0.97rem;max-width:500px;margin-top:0.5rem">
+      תמונות, סרטונים, והקלטות — כל החומרים של תנועת האור במקום אחד.
+    </p>
+    <div class="copyright-notice">
+      ⚖️ לפי סעיף 27א לחוק זכויות יוצרים, כל הזכויות שמורות לתנועת האור © 2026
+    </div>
+  </div>
+  <div class="page-header-logo">
+    <img src="logo.png" alt="תנועת האור — כי אתה ראוי ליותר">
   </div>
 </div>
 
@@ -153,7 +181,6 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.3)}
   </div>
 
   <div class="media-grid" id="mediaGrid">
-
     <div class="media-card" data-type="video">
       <div class="thumb">
         <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a3a5c,#0D1B2A);display:flex;align-items:center;justify-content:center"><span style="font-size:3rem">🎬</span></div>
@@ -249,7 +276,7 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.3)}
 
 <footer>
   <a class="logo" href="index.html" style="color:var(--white)">תנועת <span style="color:var(--gold)">האור</span></a>
-  <p>© 2026 תנועת האור · </p>
+  <p>© 2026 תנועת האור · כי אתה ראוי ליותר</p>
 </footer>
 
 <script>
@@ -264,6 +291,25 @@ function filterMedia(type,btn){
   });
   document.getElementById('emptyMsg').style.display=visible===0?'block':'none';
 }
+function toggleMenu(){
+  const menu = document.getElementById('navMenu');
+  const h1 = document.getElementById('h1');
+  const h2 = document.getElementById('h2');
+  const h3 = document.getElementById('h3');
+  menu.classList.toggle('open');
+  const isOpen = menu.classList.contains('open');
+  h1.style.transform = isOpen ? 'translateY(7px) rotate(45deg)' : 'none';
+  h2.style.opacity = isOpen ? '0' : '1';
+  h3.style.transform = isOpen ? 'translateY(-7px) rotate(-45deg)' : 'none';
+}
+document.querySelectorAll('#navMenu a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('navMenu').classList.remove('open');
+    document.getElementById('h1').style.transform = 'none';
+    document.getElementById('h2').style.opacity = '1';
+    document.getElementById('h3').style.transform = 'none';
+  });
+});
 </script>
 </body>
 </html>
