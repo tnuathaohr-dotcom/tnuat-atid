@@ -20,7 +20,7 @@
   --border:#E2DDD6;
   --white:#FFFFFF;
 }
-html{scroll-behavior:smooth;overflow-x:hidden}
+html{scroll-behavior:smooth}
 body{font-family:'Heebo',sans-serif;background:var(--cream);color:var(--navy);direction:rtl;font-size:16px;line-height:1.7}
 nav{
   position:fixed;top:0;right:0;left:0;z-index:100;
@@ -45,8 +45,6 @@ nav ul a:hover{color:var(--navy)}
   position:relative;overflow:hidden;
   flex-direction:row;
   justify-content:space-between;gap:3rem;
-  max-width:100%;
-  box-sizing:border-box;
 }
 .hero::before{
   content:'';position:absolute;top:-10%;left:-5%;
@@ -55,13 +53,16 @@ nav ul a:hover{color:var(--navy)}
   pointer-events:none;
 }
 .hero-logo-side{
-  flex:1;display:flex;align-items:center;
+  flex:0 0 40%;display:flex;align-items:center;
   justify-content:center;position:relative;z-index:1;
+  order:2;
 }
-.hero-logo-side{
-  flex:1;display:flex;align-items:center;
-  justify-content:center;position:relative;z-index:1;
-  min-width:0;
+.hero-inner{
+  order:1;
+}
+.hero-logo-side img{
+  max-width:360px;width:100%;
+  mix-blend-mode:screen;
 }
 .hero-inner{flex:1;max-width:540px;position:relative;z-index:1;min-width:0}
 .eyebrow{display:inline-block;font-size:0.75rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,145,42,0.4);padding:0.3rem 0.85rem;border-radius:2px;margin-bottom:1.6rem}
@@ -107,9 +108,6 @@ footer{background:var(--navy);padding:2rem 5%;display:flex;align-items:center;ju
 footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
 
 @media(max-width:700px){
-  *{max-width:100%}
-  html,body{overflow-x:hidden}
-  .hero{overflow:hidden}
   .about{grid-template-columns:1fr}
   .about-quote{margin-top:0}
   .hamburger{display:flex}
@@ -127,10 +125,11 @@ footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
     background:none!important;border-radius:0!important;
   }
   nav ul li:last-child a{border-bottom:none}
-  .hero{flex-direction:column;padding:90px 5% 50px;min-height:auto;gap:2rem;flex-direction:column!important}
-  .hero-logo-side{width:100%;order:2}
-  .hero-inner{width:100%;order:1}
-  .hero-logo-side img{max-width:280px;margin:0 auto;display:block}
+  html,body{overflow-x:hidden}
+  .hero{flex-direction:column!important;padding:90px 5% 50px;min-height:auto;gap:1.5rem}
+  .hero-logo-side{width:100%;order:2;flex:none}
+  .hero-logo-side img{max-width:240px;margin:0 auto;display:block}
+  .hero-inner{width:100%;order:1;flex:none}
   .values{padding:60px 5%}
   .about{padding:60px 5%}
   .join{padding:60px 5%}
@@ -159,7 +158,7 @@ footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
 
 <section class="hero">
   <div class="hero-logo-side">
-   <img src="logo.png" alt="תנועת האור — כי אתה ראוי ליותר">
+    <img src="logo.png" alt="תנועת האור — כי אתה ראוי ליותר">
   </div>
   <div class="hero-inner">
     <span class="eyebrow">מפלגה לכנסת ישראל</span>
