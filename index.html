@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="תנועת האור — כי מגיע לנו יותר. נציגות אמיתית לציבור החרדי בכנסת ישראל.">
-<meta property="og:title" content="תנועת האור — כי מגיע לנו יותר">
-<meta property="og:description" content="קהילה חזקה, קול אמיתי בכנסת. כי מגיע לנו יותר.">
+<meta name="description" content="תנועת האור — כי אתה ראוי ליותר. נציגות אמיתית לציבור החרדי בכנסת ישראל.">
+<meta property="og:title" content="תנועת האור — כי אתה ראוי ליותר">
+<meta property="og:description" content="קהילה חזקה, קול אמיתי בכנסת. כי אתה ראוי ליותר.">
 <meta property="og:type" content="website">
-<title>תנועת האור | כי מגיע לנו יותר</title>
+<title>תנועת האור | כי אתה ראוי ליותר</title>
 <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Heebo:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -37,11 +37,31 @@ nav ul a:hover{color:var(--navy)}
 .nav-cta:hover{background:var(--gold)!important}
 .hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
 .hamburger span{display:block;width:24px;height:2px;background:var(--navy);transition:all .3s;border-radius:2px}
-.hero{min-height:100vh;display:flex;align-items:center;padding:100px 5% 60px;background:var(--navy);position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-10%;left:-5%;width:55%;height:120%;background:radial-gradient(ellipse at center,rgba(184,145,42,0.12) 0%,transparent 70%);pointer-events:none}
-.hero-inner{max-width:680px;position:relative;z-index:1}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:100px 5% 60px;background:var(--navy);
+  position:relative;overflow:hidden;
+  justify-content:space-between;gap:3rem;
+}
+.hero::before{
+  content:'';position:absolute;top:-10%;left:-5%;
+  width:55%;height:120%;
+  background:radial-gradient(ellipse at center,rgba(184,145,42,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-logo-side{
+  flex:1;display:flex;align-items:center;
+  justify-content:center;position:relative;z-index:1;
+}
+.hero-logo-side img{
+  max-width:420px;width:100%;
+  filter:drop-shadow(0 0 40px rgba(184,145,42,0.15));
+}
+.hero-inner{flex:1;max-width:540px;position:relative;z-index:1}
 .eyebrow{display:inline-block;font-size:0.75rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,145,42,0.4);padding:0.3rem 0.85rem;border-radius:2px;margin-bottom:1.6rem}
-.hero h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2.2rem,8vw,3.8rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:1.4rem}
+.hero h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2.2rem,4vw,3.8rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:1.4rem}
 .hero h1 em{font-style:normal;color:var(--gold-light)}
 .hero p{font-size:1.05rem;font-weight:300;color:rgba(255,255,255,0.72);max-width:520px;margin-bottom:2.4rem;line-height:1.8}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
@@ -49,6 +69,7 @@ nav ul a:hover{color:var(--navy)}
 .btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
 .btn-ghost{background:transparent;color:rgba(255,255,255,0.75);font-family:'Heebo',sans-serif;font-size:0.95rem;font-weight:400;padding:0.85rem 1.6rem;border-radius:4px;border:1px solid rgba(255,255,255,0.25);cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s}
 .btn-ghost:hover{border-color:rgba(255,255,255,0.6);color:var(--white)}
+
 .divider{height:4px;background:var(--gold);width:48px;margin:0 0 1.2rem}
 .values{padding:90px 5%}
 .section-label{font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem}
@@ -80,6 +101,7 @@ nav ul a:hover{color:var(--navy)}
 .social-pill:hover{border-color:var(--navy);color:var(--navy)}
 footer{background:var(--navy);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
+
 @media(max-width:700px){
   .about{grid-template-columns:1fr}
   .about-quote{margin-top:0}
@@ -98,7 +120,10 @@ footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
     background:none!important;border-radius:0!important;
   }
   nav ul li:last-child a{border-bottom:none}
-  .hero{padding:90px 5% 50px;min-height:auto}
+  .hero{flex-direction:column;padding:90px 5% 50px;min-height:auto;gap:2rem}
+  .hero-logo-side{width:100%}
+  .hero-logo-side img{max-width:280px;margin:0 auto;display:block}
+  .hero-inner{width:100%}
   .values{padding:60px 5%}
   .about{padding:60px 5%}
   .join{padding:60px 5%}
@@ -126,10 +151,13 @@ footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
 </nav>
 
 <section class="hero">
+  <div class="hero-logo-side">
+    <img src="logo.png" alt="תנועת האור — כי אתה ראוי ליותר">
+  </div>
   <div class="hero-inner">
     <span class="eyebrow">מפלגה לכנסת ישראל</span>
     <h1>קהילה חזקה,<br><em>קול אמיתי</em><br>בכנסת</h1>
-    <p style="font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;font-weight:400;color:var(--gold-light);margin-bottom:0.8rem;letter-spacing:0.02em">כי מגיע לנו יותר.</p>
+    <p style="font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;font-weight:400;color:var(--gold-light);margin-bottom:0.8rem;letter-spacing:0.02em">כי אתה ראוי ליותר.</p>
     <p>אנחנו מייצגים את הציבור החרדי — צרכיו, ערכיו, ועתידו. תורה, משפחה, ופרנסה בכבוד.</p>
     <div class="hero-actions">
       <a href="#join" class="btn-primary">הצטרף לתנועה</a>
@@ -211,7 +239,7 @@ footer p{font-size:0.78rem;color:rgba(255,255,255,0.35)}
 
 <footer>
   <a class="logo" href="index.html" style="color:var(--white)">תנועת <span style="color:var(--gold)">האור</span></a>
-  <p>© 2026 תנועת האור · כל הזכויות שמורות</p>
+  <p>© 2026 תנועת האור · כי אתה ראוי ליותר</p>
 </footer>
 
 <script>
